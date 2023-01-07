@@ -1,4 +1,3 @@
 #!/bin/bash
-
-rm feed.txt
-rm config/conf.json
+rm -f feed.txt
+rm -f config/conf.json
