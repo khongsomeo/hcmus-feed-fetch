@@ -33,7 +33,7 @@ def main():
     # Get current timestamps for later logs.
     current_date = datetime.now()
 
-    with open(args.save, "w+") as f:
+    with open(args.save, "w+", encoding="utf8") as f:
         for url_alias in urls_dict:
             url_obj = urls_dict[url_alias]
 
