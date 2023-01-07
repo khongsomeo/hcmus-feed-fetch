@@ -45,8 +45,8 @@ def main():
             # Is this alias has a new news?
             has_news = False
 
-            # List of (need to focus) news.
-            focus_news = []
+            # Set of (need to focus) news.
+            focus_news = set()
 
             feed_list = feedparser.parse(url)["entries"]
             for feed in feed_list:
@@ -64,7 +64,7 @@ def main():
 
                     for key in keys_list:
                         if key.lower() in feed_title.lower():
-                            focus_news.append(feed_title)
+                            focus_news.add(feed_title)
 
             if has_news is False:
                 print(f"No new news in {url_fullname}!")
