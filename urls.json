@@ -1,9 +1,9 @@
 {
     "SDH_URL" : {
-        "name": "Phòng đào tạo Sau đại học",
-        "url": "https://sdh.hcmus.edu.vn/feed/"
+        "name" : "Phòng đào tạo Sau đại học",
+        "url" : "https://sdh.hcmus.edu.vn/feed/"
     },
-    "FIT_URL": {
+    "FIT_URL" : {
         "name" : "Website khoa Công nghệ thông tin",
         "url" : "https://www.fit.hcmus.edu.vn/vn/feed.aspx"
     }
