@@ -33,7 +33,11 @@ def main():
     # Get current timestamps for later logs.
     current_date = datetime.now()
 
-    with open(args.save, "w+", encoding="utf8") as f:
+    # Filename to save
+    current_date_str = current_date.strftime("%Y-%m-%d-%H-%M-%S")
+    save_filename = f"{current_date_str}-{args.save}"
+
+    with open(save_filename, "w+", encoding="utf8") as f:
         for url_alias in urls_dict:
             url_obj = urls_dict[url_alias]
 
@@ -69,7 +73,7 @@ def main():
             if has_news is False:
                 print(f"No new news in {url_fullname}!")
             else:
-                print(f"There are some new news in {url_fullname}, saved in {args.save}")
+                print(f"There are some new news in {url_fullname}, saved in {save_filename}")
 
                 if len(focus_news) > 0:
                     print(f"There are {len(focus_news)} important news:")
