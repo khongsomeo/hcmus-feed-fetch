@@ -1,5 +1,6 @@
 import feedparser
 import json
+import os
 from datetime import datetime
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 
@@ -37,6 +38,8 @@ def main():
     current_date_str = current_date.strftime("%Y-%m-%d-%H-%M-%S")
     save_filename = f"{current_date_str}-{args.save}"
 
+    has_change = False
+
     with open(save_filename, "w+", encoding="utf8") as f:
         for url_alias in urls_dict:
             url_obj = urls_dict[url_alias]
@@ -60,7 +63,9 @@ def main():
 
                 if last_update_date is None or feed_published.date() > last_update_date.date():
                     has_news = True
-                    
+
+                    has_change |= has_news
+
                     print(f"Title: {feed_title}", file = f)
                     print(f"URL: {feed_url}", file = f)
                     print(f"Published on {feed_published}", file = f)
@@ -81,6 +86,10 @@ def main():
                         print(f"- {news}")
 
             print("-" * 10)
+
+    # Don't save a file if no news fetched
+    if has_change is False:
+        os.remove(save_filename)
 
     conf_dict["last_update"] = current_date.__str__()
     with open(CONF_FILE, "w+") as f:
