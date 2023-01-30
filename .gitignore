@@ -1,4 +1,5 @@
 conf.json
+*-feed.txt
 
 # Swap
 [._]*.s[a-v][a-z]
