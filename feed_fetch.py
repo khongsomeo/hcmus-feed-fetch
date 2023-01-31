@@ -61,7 +61,7 @@ def main():
                 feed_published = datetime(*feed["published_parsed"][:6])
                 feed_url = feed["link"]
 
-                if last_update_date is None or feed_published.date() > last_update_date.date():
+                if last_update_date is None or feed_published > last_update_date:
                     has_news = True
 
                     has_change |= has_news
