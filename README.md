@@ -14,7 +14,7 @@ optional arguments:
   --save SAVE  Saving new news (if any) to a file (default: feed.txt)
 ```
 
-- If there are new feeds, they'll be fetch and save on **the feed file (feed.txt by default)**.
+- If there are new feeds, they'll be fetch and save on **the feed file `(logs/(current_date_and_time)-feed.txt` by default)**.
 - Running `run.bat` (Windows) or `run.sh` (Unix) if you're too lazy to type arguments.
 ## Keywords mentioning
 
