@@ -6,7 +6,7 @@ from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 
 CONF_FILE = "config/conf.json"
 KEYW_FILE = "config/keywords.txt"
-LOG_FOLDER = "logs/"
+LOG_FOLDER = "logs"
 
 def main():
     parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
@@ -35,13 +35,18 @@ def main():
     # Create log folder if not exist
     if not os.path.exists(LOG_FOLDER):
         os.makedirs(LOG_FOLDER)
-
+        
     # Get current timestamps for later logs.
     current_date = datetime.now()
+    current_date_day = current_date.strftime("%Y-%m-%d")
+    current_date_time = current_date.strftime("%H-%M-%S")
+        
+    # Create current date folder if not exist
+    if not os.path.exists(f"{LOG_FOLDER}/{current_date_day}"):
+        os.makedirs(f"{LOG_FOLDER}/{current_date_day}")
 
     # Filename to save
-    current_date_str = current_date.strftime("%Y-%m-%d-%H-%M-%S")
-    save_filename = f"{LOG_FOLDER}/{current_date_str}-{args.save}"
+    save_filename = f"{LOG_FOLDER}/{current_date_day}/{current_date_time}-{args.save}"
 
     has_change = False
 
